@@ -235,15 +235,38 @@ Faz sentido em **tarefas curtas e disparadas por evento**: gerar a guia quando c
 
 ### Prints
 
-Ficam em [`evidencias/prints/`](evidencias/prints/):
+Imagens geradas a partir dos arquivos `.txt` acima com o [freeze](https://github.com/charmbracelet/freeze)
+(`brew install charmbracelet/tap/freeze`), todas em [`evidencias/prints/`](evidencias/prints/):
 
-- `01-ambiente.png` — versões das ferramentas e `docker info`
-- `02-projeto.png` — `template.yaml` (POST /guias, Timeout) e `app.py`
-- `03-invoke.png` — as duas `sam local invoke` com os tempos
-- `04-http-sem-warm.png` — curls sem warm (contador 1, 1, 1)
-- `05-http-com-warm.png` — curls com warm LAZY (contador 1, 2, 3)
-- `06-timeout-3s.png` — erro 502 + "timed out after 3 seconds"
-- `07-timeout-10s.png` — 201 depois do ajuste
+```bash
+for f in evidencias/*.txt evidencias/extra/*.txt; do
+  freeze "$f" -o "evidencias/prints/$(basename "$f" .txt).png" --language bash --window --wrap 110
+done
+```
+
+#### 1. Ambiente: versões das ferramentas
+![Versões do SAM CLI, Docker e Python](evidencias/prints/01-versoes.png)
+
+#### 2. `sam local invoke`, 1ª invocação (50,30 s no total, baixando a imagem)
+![Primeira invocação](evidencias/prints/02-invoke-1.png)
+
+#### 3. `sam local invoke`, 2ª invocação (5,03 s no total)
+![Segunda invocação](evidencias/prints/03-invoke-2.png)
+
+#### 4. HTTP sem `--warm-containers` (contador 1, 1, 1)
+![Curls sem warm containers](evidencias/prints/04-http-sem-warm.png)
+
+#### 5. HTTP com `--warm-containers LAZY` (contador 1, 2, 3)
+![Curls com warm containers LAZY](evidencias/prints/05-http-com-warm.png)
+
+#### 6. Timeout 3 s com `demorar: true` (HTTP 502, "timed out after 3 seconds")
+![Erro de timeout com 3 segundos](evidencias/prints/06-timeout-3s.png)
+
+#### 7. Timeout 10 s com `demorar: true` (HTTP 201)
+![Sucesso com timeout de 10 segundos](evidencias/prints/07-timeout-10s.png)
+
+#### Extra: `samconfig.toml` com `warm_containers = "EAGER"` padrão (contador 1, 2, 3 sem pedir warm)
+![Rodada com samconfig EAGER padrão](evidencias/prints/04x-http-samconfig-eager-padrao.png)
 
 ### Vídeo
 
