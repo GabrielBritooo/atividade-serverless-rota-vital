@@ -1,0 +1,19 @@
+# Etapa 4 — Timeout: 10 (template.yaml) + sam build, start-api --port 3001 --warm-containers LAZY — 2026-11-24 11:52:48
+
+## Resposta do curl
+$ curl -s -X POST http://127.0.0.1:3001/guias -H "Content-Type: application/json" -d '{"requisicaoId":"R-003","demorar":true}'
+{"guia": "G-R-003", "hospital": null, "bolsas": [], "invocacaoNesteAmbiente": 1}
+[HTTP 201 — tempo total 9.813583s]
+
+## Trecho do log do sam local start-api
+Invoking app.lambda_handler (python3.12)
+Local image is up-to-date
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-arm64.
+
+Mounting /Users/gabrielbritodelima/atividade-serverless/rota-vital-guia/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: f2e12710f67d296a59064ffee84b82acd6d861883280eb98e3591912080e0530
+END RequestId: ad09d67f-a54a-4758-b10a-3e0b2ef9a739
+REPORT RequestId: ad09d67f-a54a-4758-b10a-3e0b2ef9a739	Init Duration: 0.03 ms	Duration: 5245.19 ms	Billed Duration: 5246 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+No Content-Type given. Defaulting to 'application/json'.
+2026-11-24 11:52:58 127.0.0.1 - - [24/Nov/2026 11:52:58] "[35m[1mPOST /guias HTTP/1.1[0m" 201 -

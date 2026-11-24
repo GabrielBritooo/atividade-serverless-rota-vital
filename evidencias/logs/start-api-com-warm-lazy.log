@@ -1,0 +1,43 @@
+No current session found, using default AWS::AccountId
+Mounting HelloWorldFunction at http://127.0.0.1:3001/guias [POST]
+You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. If you used sam build before running local commands, you will need to re-run sam build for the changes to be picked up. You only need to restart SAM CLI if you update your AWS SAM template
+2026-11-24 11:51:58 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+2026-11-24 11:51:58 [33mPress CTRL+C to quit[0m
+Invoking app.lambda_handler (python3.12)
+Local image is up-to-date
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-arm64.
+
+Mounting /Users/gabrielbritodelima/atividade-serverless/rota-vital-guia/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: b3c77cdd0a2502ede1b2f98a6b2f5bbfa813f14244ce348f400ac2c9ec79d248
+END RequestId: 20f822df-15ff-4d63-b225-d8746527290b
+REPORT RequestId: 20f822df-15ff-4d63-b225-d8746527290b	Init Duration: 0.05 ms	Duration: 316.25 ms	Billed Duration: 317 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+No Content-Type given. Defaulting to 'application/json'.
+2026-11-24 11:52:03 127.0.0.1 - - [24/Nov/2026 11:52:03] "[35m[1mPOST /guias HTTP/1.1[0m" 201 -
+Invoking app.lambda_handler (python3.12)
+Lambda function 'HelloWorldFunction' is already running
+START RequestId: 92b133b7-1082-4fbe-8ee3-923a7f3b3cce Version: $LATEST
+END RequestId: 92b133b7-1082-4fbe-8ee3-923a7f3b3cce
+REPORT RequestId: 92b133b7-1082-4fbe-8ee3-923a7f3b3cce	Duration: 1.75 ms	Billed Duration: 2 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+No Content-Type given. Defaulting to 'application/json'.
+2026-11-24 11:52:04 127.0.0.1 - - [24/Nov/2026 11:52:04] "[35m[1mPOST /guias HTTP/1.1[0m" 201 -
+Invoking app.lambda_handler (python3.12)
+Lambda function 'HelloWorldFunction' is already running
+START RequestId: d21997a5-a9f7-41c4-ab7a-5b7b4da794dc Version: $LATEST
+END RequestId: d21997a5-a9f7-41c4-ab7a-5b7b4da794dc
+REPORT RequestId: d21997a5-a9f7-41c4-ab7a-5b7b4da794dc	Duration: 1.43 ms	Billed Duration: 2 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+No Content-Type given. Defaulting to 'application/json'.
+2026-11-24 11:52:04 127.0.0.1 - - [24/Nov/2026 11:52:04] "[35m[1mPOST /guias HTTP/1.1[0m" 201 -
+Invoking app.lambda_handler (python3.12)
+Lambda function 'HelloWorldFunction' is already running
+START RequestId: 06035ea4-2431-4b59-8059-ee03840950a5 Version: $LATEST
+Function 'HelloWorldFunction' timed out after 3 seconds
+24 Nov 2026 14:52:13,804 [ERROR] (rapid) Invoke failed error=errResetReceived InvokeID=06035ea4-2431-4b59-8059-ee03840950a5
+END RequestId: 06035ea4-2431-4b59-8059-ee03840950a5
+REPORT RequestId: 06035ea4-2431-4b59-8059-ee03840950a5	Duration: 3000.00 ms	Billed Duration: 3000 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+Invalid lambda response received: Lambda response must be valid json
+2026-11-24 11:52:13 127.0.0.1 - - [24/Nov/2026 11:52:13] "[35m[1mPOST /guias HTTP/1.1[0m" 502 -

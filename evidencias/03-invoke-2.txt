@@ -1,0 +1,18 @@
+# Invocação 2 — 2026-11-24 11:49:27
+$ time sam local invoke -e events/pedido.json
+
+No current session found, using default AWS::AccountId
+Invoking app.lambda_handler (python3.12)
+Local image is up-to-date
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-arm64.
+
+Mounting /Users/gabrielbritodelima/atividade-serverless/rota-vital-guia/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: c1565cf7edfd44ac7b17d1dbc253066d5898abc041029ca267cc53ceacd804e9
+START RequestId: 822f7557-21ab-4413-9b86-87cae164cc46 Version: $LATEST
+END RequestId: 822f7557-21ab-4413-9b86-87cae164cc46
+REPORT RequestId: 822f7557-21ab-4413-9b86-87cae164cc46	Init Duration: 0.04 ms	Duration: 377.50 ms	Billed Duration: 378 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+{"statusCode": 201, "body": "{\"guia\": \"G-R-001\", \"hospital\": \"H-Recife\", \"bolsas\": [\"O-NEG-0142\"], \"invocacaoNesteAmbiente\": 1}"}
+
+real	0m5.027s
+user	0m0.938s
+sys	0m0.256s

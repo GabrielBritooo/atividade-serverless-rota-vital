@@ -1,0 +1,17 @@
+# Etapa 3 — sam local start-api --port 3001 --warm-containers LAZY — 2026-11-24 11:51:58
+# (porta 3001 porque a 3000 já estava ocupada por outro processo na máquina)
+
+## Chamada 1
+$ curl -s -X POST http://127.0.0.1:3001/guias -H "Content-Type: application/json" -d '{"requisicaoId":"R-002","hospital":"H-Caruaru"}'
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 1}
+[HTTP 201 — tempo total 4.918524s]
+
+## Chamada 2
+$ curl -s -X POST http://127.0.0.1:3001/guias -H "Content-Type: application/json" -d '{"requisicaoId":"R-002","hospital":"H-Caruaru"}'
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 2}
+[HTTP 201 — tempo total 1.029275s]
+
+## Chamada 3
+$ curl -s -X POST http://127.0.0.1:3001/guias -H "Content-Type: application/json" -d '{"requisicaoId":"R-002","hospital":"H-Caruaru"}'
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 3}
+[HTTP 201 — tempo total 0.020126s]

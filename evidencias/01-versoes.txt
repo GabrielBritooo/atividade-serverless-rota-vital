@@ -1,0 +1,9 @@
+# Versões das ferramentas — 2026-11-24 11:47
+$ sam --version
+SAM CLI, version 1.174.0
+$ docker --version
+Docker version 29.9.2, build a82e528
+$ python3.12 --version
+Python 3.12.16
+$ uname -m
+arm64

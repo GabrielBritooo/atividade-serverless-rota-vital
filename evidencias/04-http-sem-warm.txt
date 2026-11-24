@@ -1,0 +1,17 @@
+# Etapa 3 — sam local start-api --port 3001 (SEM --warm-containers) — 2026-11-24 11:51:22
+# (porta 3001 porque a 3000 já estava ocupada por outro processo na máquina)
+
+## Chamada 1
+$ curl -s -X POST http://127.0.0.1:3001/guias -H "Content-Type: application/json" -d '{"requisicaoId":"R-002","hospital":"H-Caruaru"}'
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 1}
+[HTTP 201 — tempo total 3.511265s]
+
+## Chamada 2
+$ curl -s -X POST http://127.0.0.1:3001/guias -H "Content-Type: application/json" -d '{"requisicaoId":"R-002","hospital":"H-Caruaru"}'
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 1}
+[HTTP 201 — tempo total 1.906986s]
+
+## Chamada 3
+$ curl -s -X POST http://127.0.0.1:3001/guias -H "Content-Type: application/json" -d '{"requisicaoId":"R-002","hospital":"H-Caruaru"}'
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 1}
+[HTTP 201 — tempo total 2.822079s]
