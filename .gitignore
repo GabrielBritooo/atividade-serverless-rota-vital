@@ -11,3 +11,7 @@ venv/
 
 # macOS
 .DS_Store
+
+# Vídeo (gerado pelo VHS a partir de video/entrega.tape; não versionar)
+video/*.mp4
+video/*.gif

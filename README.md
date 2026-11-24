@@ -272,6 +272,34 @@ done
 
 🎥 **Link do vídeo:** _(colocar aqui o link do vídeo, até 3 min)_
 
+O vídeo (2min20) foi gerado com o [VHS](https://github.com/charmbracelet/vhs) a partir do roteiro
+[`video/entrega.tape`](video/entrega.tape). O VHS abre um terminal de verdade, digita e **executa os comandos reais
+do projeto** (`sam local invoke`, `sam local start-api`, `curl`, `sam build`) e grava a tela. Nenhuma saída é simulada:
+os números que aparecem no vídeo são os da execução daquele momento. Ele mostra:
+
+1. a invocação com evento (`sam local invoke`, duas vezes, com `time`);
+2. a chamada HTTP com `curl`, sem warm containers (contador 1, 1, 1) e com `--warm-containers LAZY` (1, 2, 3);
+3. o erro de tempo limite (Timeout 3 → `Internal server error` + "timed out after 3 seconds" no log) e o ajuste
+   (Timeout 10 + `sam build` → 201).
+
+Para gerar de novo (com o Docker aberto, `Timeout: 3` no `template.yaml` e `sam build` feito):
+
+```bash
+brew install vhs
+vhs video/entrega.tape        # gera video/entrega-serverless.mp4 (o .mp4 não é versionado)
+```
+
+Quadros extraídos do vídeo com `ffmpeg`:
+
+| Parte | Quadro |
+|-------|--------|
+| 0. Título | ![Título](evidencias/prints/video-0-titulo.png) |
+| 1. Invocação com evento | ![Invocação com evento](evidencias/prints/video-1-invoke.png) |
+| 2a. HTTP sem warm (1, 1, 1) | ![HTTP sem warm](evidencias/prints/video-2a-http-sem-warm.png) |
+| 2b. HTTP com warm LAZY (1, 2, 3) | ![HTTP com warm](evidencias/prints/video-2b-http-com-warm.png) |
+| 3. Timeout 3 s | ![Timeout 3s](evidencias/prints/video-3-timeout-3s.png) |
+| 3b. Timeout 10 s → 201 | ![Timeout 10s](evidencias/prints/video-3b-timeout-10s.png) |
+
 ## Uso de IA
 
 - **Ferramenta:** Claude Code (Anthropic).
