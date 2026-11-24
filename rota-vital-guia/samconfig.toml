@@ -23,8 +23,5 @@ resolve_s3 = true
 [default.sync.parameters]
 watch = true
 
-[default.local_start_api.parameters]
-warm_containers = "EAGER"
-
-[default.local_start_lambda.parameters]
-warm_containers = "EAGER"
+# warm_containers removido de local_start_api/local_start_lambda: o modo
+# de containers é escolhido explicitamente pela flag --warm-containers.
